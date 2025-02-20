@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -48,10 +47,10 @@ public class Issue {
     private User reviewedBy;
 
     @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt;
+    private Long createdAt;
 
     @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    private Long updatedAt;
 
     // Quan hệ nhiều-nhiều với Categories
     @ManyToMany
@@ -90,11 +89,11 @@ public class Issue {
 
     @PrePersist
     protected void onCreate() {
-        createdAt = LocalDateTime.now();
+        createdAt = System.currentTimeMillis();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        updatedAt = LocalDateTime.now();
+        updatedAt = System.currentTimeMillis();
     }
 }

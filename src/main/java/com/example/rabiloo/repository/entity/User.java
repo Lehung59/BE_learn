@@ -5,8 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "users")
 @Data
@@ -32,8 +30,8 @@ public class User {
     private String role;  // Ví dụ: Admin, Employee
 
     @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt;
+    private Long createdAt;
 
     @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    private Long updatedAt;
 }

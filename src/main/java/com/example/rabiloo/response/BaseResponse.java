@@ -32,6 +32,12 @@ public class BaseResponse<T> {
         this.data = data;
     }
 
+    public BaseResponse(CommonMessage common, String message) {
+        this.code = common.code;
+        this.message = common.message +": "+ message;
+    }
+
+
     @Override
     public String toString() {
         return "BaseResponse{" +

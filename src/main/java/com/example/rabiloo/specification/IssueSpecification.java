@@ -10,7 +10,7 @@ import java.util.List;
 
 public class IssueSpecification {
 
-    public static Specification<Issue> searchCongress(SearchIssueRequest request) {
+    public static Specification<Issue> searchIssue(SearchIssueRequest request) {
         return (root, cq, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
 

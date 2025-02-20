@@ -17,9 +17,9 @@ public class SearchIssueRequest {
 
     private List<String> issueTypes;
 
-    private Integer pageIndex = 1;
+    private Integer pageIndex;
 
-    private Integer pageSize = 5;
+    private Integer pageSize;
 
     private String keyword;
 

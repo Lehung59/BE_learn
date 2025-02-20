@@ -26,15 +26,12 @@ public class IssueController {
     @GetMapping("/list")
     public BaseResponse<PagingResponse<IssueResponse>> getAllIssues(
             @RequestParam(required = false) String keyword,
-            @RequestParam(value = "page_index", required = false) Integer pageIndex,
-            @RequestParam(value = "page_size", required = false) Integer pageSize,
+            @RequestParam(value = "page_index", required = false,defaultValue = "1") Integer pageIndex,
+            @RequestParam(value = "page_size", required = false, defaultValue = "5") Integer pageSize,
             @RequestParam(value = "cate_ids", required = false) List<Long> cateIds,
             @RequestParam(value = "project_ids", required = false) List<Long> projectIds,
             @RequestParam(value = "tag_ids", required = false) List<Long> tagIds,
             @RequestParam(value = "issue_type", required = false) List<String> issueTypes
-
-
-
 
     ) {
         try {
@@ -74,12 +71,12 @@ public class IssueController {
                                        @RequestParam(required = false) List<MultipartFile> image,
                                        @RequestParam String title,
                                        @RequestParam String description,
-                                       @RequestParam String rootCauseAnalysis,
-                                       @RequestParam String recommendedSolutions,
-                                       @RequestParam(required = false) Long reviewerId,
-                                       @RequestParam(required = false)List<Long> listCateIds,
-                                       @RequestParam(required = false)List<Long> listPrjIds,
-                                       @RequestParam(required = false) List<Long> listTagIds
+                                       @RequestParam(value = "root_cause") String rootCauseAnalysis,
+                                       @RequestParam(value = "solution", required = false) String recommendedSolutions,
+                                       @RequestParam(value = "reviewer_id",required = false) Long reviewerId,
+                                       @RequestParam(value = "cate_id", required = false)List<Long> listCateIds,
+                                       @RequestParam(value = "project_id", required = false)List<Long> listPrjIds,
+                                       @RequestParam(value = "tag_id", required = false) List<Long> listTagIds
                                        ) {
         try {
 
